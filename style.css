@@ -1,37 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+:root {
+    --photo-border-radius: 15px;
+    --transition: 1.5s ease-in-out;
+    --photo-width: 250px; /* Default width for photos */
+}
 
 body {
-    background-color: #000000; /* Initial screen color / Cor inicial da tela */
+    background-color: #000000;
     font-family: 'Merriweather', serif;
     min-height: 100vh;
     margin: 0;
+    /* Center content on the page */
     display: flex;
     flex-direction: column;
-    /* The line below makes the background color change smoothly / A linha abaixo faz a cor de fundo mudar suavemente */
-    transition: background-color 2s ease-in-out; /* This line makes the background color change smoothly / Esta linha faz a cor de fundo mudar suavemente */
+    align-items: center;
+    justify-content: center;
 }
 
-/* When JavaScript acts, the background will change to this class / Quando o JavaScript age, o fundo mudará para esta classe */
-body.black-screen {
-    background-color: #000000; /* Absolute black / Preto absoluto */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
-    color: #4f6cff; /* The original blue of your title / O azul original do seu título */
+    color: #4f6cff;
     text-align: center;
 }
 
-/* "Miau." configuration (starts invisible) / Configuração do "Miau." (começa invisível) */
-#mensagem-secreta {
-    margin-top: 20px;
-    opacity: 0;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #ffffff; /* White text to contrast on black background */
-    transition: opacity 0.7s ease-in-out, color 0.7s ease-in-out, font-size 0.7s ease-in-out;
+/* Added this rule so your paragraph appears white on the black background */
+p {
+    color: #ffffff;
+    text-align: center;
 }
+/* ======================================= */
+/* MANIFESTO PHOTO RULES                   */
+/* ======================================= */
 
-/* Class that JavaScript activates to show "Miau." / Classe que o JavaScript ativa para mostrar o "Miau." */
-#mensagem-secreta.mostrar {
-    opacity: 1;
+/* Photo 1 Configuration: 
+   Image file: gato1.jpg 
+   Element ID: #foto-gatilho (The Button) 
+*/
+#foto-gatilho {
+    margin-top: 25px;
+    width: var(--photo-width); /* You can increase or decrease this number to change the size */
+    border-radius: var(--photo-border-radius); /* Makes the photo corners rounded */
+    cursor: pointer; /* Changes the mouse pointer to a "hand" on hover */
+    transition: transform 0.2s; /* Prepares the photo for the click effect */
+}
+#foto-gatilho:active {
+    transform: scale(0.96); /* Optional: adds a "pressed" effect */
+}
+#foto-escondida {
+    border-radius: var(--photo-border-radius);
+    width: 250px; /* Match size with #foto-gatilho for consistency */
+    opacity: 0;   /* Starts fully transparent */
+    pointer-events: none; /* Prevents interaction while invisible */
+    transition: opacity var(--transition); /* Makes it appear smoothly in 1.5 seconds */
+}
+#foto-escondida.aparecer {
+    opacity: 1;     /* Tira a transparência, revelando o gato */
+    pointer-events: auto; /* Permite interação quando visível */
 }
