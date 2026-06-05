@@ -10,8 +10,6 @@ body {
     /* The line below makes the background color change smoothly */
     transition: background-color 2s ease-in-out; 
     /* Essa linha abaixo faz o fundo mudar de cor de forma suave */
-    transition: background-color 2s ease-in-out; 
-}
 
 /* When JavaScript acts, the background will change to this class */
 body.black-screen {
