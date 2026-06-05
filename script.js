@@ -1,12 +1,19 @@
-setTimeout(function() {
-    // 1. Makes "Miau." appear on the screen
-    let mensagem = document.getElementById("mensagem-secreta");
-    if (mensagem) {
-        mensagem.textContent = "Miau.";
-        mensagem.classList.add("mostrar");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifesto</title>
+</head>
+<body>
+    <h1>Este é o manifesto da Filha Gato</h1>
+    <p>Senhora gato em seu formato digital</p>
+    <os-gatos class="com-br"></os-gatos>
+    <div class="com-br"></div>
+    <img id="foto-gatilho" src="gato1.jpg" alt="Toque na Filha Gato">
+    <img id="foto-escondida" src="gato2.jpg" alt="A verdadeira forma" hidden>
 
-        // 2. Makes the background (body) completely black
-    // 2. Faz o fundo da tela (body) ficar completamente preto
-    document.body.classList.add("tela-preta");
-
-}, 1000); // Tempo de espera (1 segundo)}, 1000); // Wait time (1 second)
+    <script src="script.js"></script>
+</body>
+</html>
