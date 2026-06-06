@@ -1,7 +1,7 @@
 :root {
     --photo-border-radius: 15px;
     --transition: 1.5s ease-in-out;
-    --photo-width: 250px; /* Default width for photos */
+    --photo-width: 250px;
 }
 
 body {
@@ -9,7 +9,6 @@ body {
     font-family: 'Merriweather', serif;
     min-height: 100vh;
     margin: 0;
-    /* Center content on the page */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,37 +27,45 @@ h1 {
     text-align: center;
 }
 
-/* Added this rule so your paragraph appears white on the black background */
 p {
     color: #ffffff;
     text-align: center;
 }
+
 /* ======================================= */
 /* MANIFESTO PHOTO RULES                   */
 /* ======================================= */
 
-/* Photo 1 Configuration: 
-   Image file: gato1.jpg 
-   Element ID: #foto-gatilho (The Button) 
-*/
 #foto-gatilho {
     margin-top: 25px;
-    width: var(--photo-width); /* You can increase or decrease this number to change the size */
-    border-radius: var(--photo-border-radius); /* Makes the photo corners rounded */
-    cursor: pointer; /* Changes the mouse pointer to a "hand" on hover */
-    transition: transform 0.2s; /* Prepares the photo for the click effect */
-}
-#foto-gatilho:active {
-    transform: scale(0.96); /* Optional: adds a "pressed" effect */
-}
-#foto-escondida {
+    width: var(--photo-width);
     border-radius: var(--photo-border-radius);
-    width: 250px; /* Match size with #foto-gatilho for consistency */
-    opacity: 0;   /* Starts fully transparent */
-    pointer-events: none; /* Prevents interaction while invisible */
-    transition: opacity var(--transition); /* Makes it appear smoothly in 1.5 seconds */
+    cursor: pointer;
+    transition: transform 0.2s;
 }
+
+#foto-gatilho:active {
+    transform: scale(0.96);
+}
+
+/* Configuração inicial da foto escondida */
+#foto-escondida {
+    margin-top: 25px;
+    border-radius: var(--photo-border-radius);
+    width: var(--photo-width);
+    display: none;        /* Crucial para sumir com a foto inicialmente */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition);
+}
+
+/* 1ª Etapa do JS: Faz a foto passar a existir no espaço da tela */
+#foto-escondida.show {
+    display: block;
+}
+
+/* 2ª Etapa do JS: Ativa o efeito de fade-in (opacidade) */
 #foto-escondida.aparecer {
-    opacity: 1;     /* Tira a transparência, revelando o gato */
-    pointer-events: auto; /* Permite interação quando visível */
+    opacity: 1;
+    pointer-events: auto;
 }
