@@ -68,4 +68,7 @@ p {
 #foto-escondida.aparecer {
     opacity: 1;
     pointer-events: auto;
+}/* Classe acionada pelo JS para sumir com a primeira foto seguindo boas práticas */
+#foto-gatilho.esconder-gatilho {
+    display: none;
 }
